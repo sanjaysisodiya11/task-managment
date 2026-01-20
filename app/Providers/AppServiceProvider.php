@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
          * Force HTTPS in production
          * (Railway / Load Balancer / Proxy safe)
          */
-        if (app()->environment('production')) {
+        if ($this->app->environment('production')) {
             URL::forceScheme('https');
         }
     }

@@ -9,17 +9,7 @@ use Illuminate\Http\Middleware\TrustProxies as Middleware;
 
 class TrustProxies extends Middleware
 {
-    /**
-     * Trust all proxies (Railway, Nginx, Load Balancer)
-     */
-    protected $proxies = [
-        '123.45.67.89', // Load balancer IP
-        '98.76.54.32',  // Nginx proxy IP
-    ];
-
-    /**
-     * Use X-Forwarded-* headers
-     */
+    protected $proxies = '*';
     protected $headers =
         Request::HEADER_X_FORWARDED_FOR |
         Request::HEADER_X_FORWARDED_HOST |
