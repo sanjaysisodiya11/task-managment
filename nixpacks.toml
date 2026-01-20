@@ -34,4 +34,4 @@ cmds = [
 ]
 
 [start]
-cmd = "php artisan serve --host=0.0.0.0 --port=$PORT"
+cmd = "frankenphp php-server -r public -p $PORT"
