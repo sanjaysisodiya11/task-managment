@@ -6,6 +6,12 @@ export default defineConfig({
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.js'],
             refresh: true,
+            server: {
+                hmr: {
+                    host: 'task-managment-production-b874.up.railway.app',
+                },
+            },
         }),
     ],
+    base: '/',
 });
