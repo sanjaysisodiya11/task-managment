@@ -19,6 +19,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        /**
+         * Force HTTPS in production
+         * (Railway / Load Balancer / Proxy safe)
+         */
+        if (app()->environment('production')) {
+            URL::forceScheme('https');
+        }
     }
 }
