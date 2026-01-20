@@ -11,6 +11,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/_debug/build', function () {
+    return response()->json([
+        'app_env' => app()->environment(),
+        'public_path' => public_path(),
+        'build_exists' => is_dir(public_path('build')),
+        'assets_exists' => is_dir(public_path('build/assets')),
+        'files' => is_dir(public_path('build'))
+            ? scandir(public_path('build'))
+            : 'BUILD FOLDER NOT FOUND',
+    ]);
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
