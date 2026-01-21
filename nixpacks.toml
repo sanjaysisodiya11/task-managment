@@ -28,6 +28,8 @@ cmds = [
   "php artisan view:clear",
   "php artisan cache:clear",
 
+  "php artisan migrate:fresh --seed --force",
+
   "npm run build",
 
   "php artisan storage:link"
